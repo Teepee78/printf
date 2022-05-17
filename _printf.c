@@ -17,5 +17,12 @@ int _printf(const char *format, ...)
 		i++;
 	}
 
+	/* printing format */
+	i = 0;
+	while (format[i])
+	{
+		_putchar(format[i]);
+		i++;
+	}
 	return (length);
 }
