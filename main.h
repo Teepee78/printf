@@ -14,4 +14,8 @@ void print_int(int digit);
 void unsigned_int(unsigned int digit);
 
 void unsigned_octal(unsigned int digit);
+
+void unsigned_hex_x(unsigned int digit);
+
+void unsigned_hex_X(unsigned int digit);
 #endif /* PRINTF */

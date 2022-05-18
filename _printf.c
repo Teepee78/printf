@@ -44,6 +44,14 @@ int _printf(const char *format, ...)
 					digit = va_arg(var, unsigned int);
 					unsigned_octal(digit);
 					break;
+				case 'x':
+					digit = va_arg(var, unsigned int);
+					unsigned_hex_x(digit);
+					break;
+				case 'X':
+					digit = va_arg(var, unsigned int);
+					unsigned_hex_X(digit);
+					break;
 			}
 		} else
 		{
