@@ -52,6 +52,10 @@ int _printf(const char *format, ...)
 					digit = va_arg(var, unsigned int);
 					unsigned_hex_X(digit);
 					break;
+				case 'c':
+					digit = va_arg(var, int);
+					_putchar(digit);
+					break;
 			}
 		} else
 		{
