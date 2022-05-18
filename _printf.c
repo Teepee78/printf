@@ -37,8 +37,12 @@ int _printf(const char *format, ...)
 					print_int(digit);
 					break;
 				case 'u':
-					digit = va_arg(var, int);
+					digit = va_arg(var, unsigned int);
 					unsigned_int(digit);
+					break;
+				case 'o':
+					digit = va_arg(var, unsigned int);
+					unsigned_octal(digit);
 					break;
 			}
 		} else

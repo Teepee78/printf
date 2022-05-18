@@ -12,4 +12,6 @@ void print_digit(int digit);
 void print_int(int digit);
 
 void unsigned_int(unsigned int digit);
+
+void unsigned_octal(unsigned int digit);
 #endif /* PRINTF */
