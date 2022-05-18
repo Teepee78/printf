@@ -36,6 +36,10 @@ int _printf(const char *format, ...)
 					digit = va_arg(var, int);
 					print_int(digit);
 					break;
+				case 'u':
+					digit = va_arg(var, int);
+					unsigned_int(digit);
+					break;
 			}
 		} else
 		{
