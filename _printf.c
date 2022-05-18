@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	va_list var;
 	int digit;
 	char *str;
+	void *ptr;
 
 	va_start(var, format);
 
@@ -60,6 +61,10 @@ int _printf(const char *format, ...)
 				case 's':
 					str = va_arg(var, char *);
 					print_string(str);
+					break;
+				case 'p':
+					ptr = va_arg(var, void *);
+					print_ptr(ptr);
 					break;
 			}
 		} else

@@ -20,4 +20,6 @@ void unsigned_hex_x(unsigned int digit);
 void unsigned_hex_X(unsigned int digit);
 
 void print_string(char *str);
+
+void print_ptr(void *ptr);
 #endif /* PRINTF */
