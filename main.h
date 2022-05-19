@@ -6,7 +6,9 @@
 #include <stdarg.h>
 
 /**
- *
+ * struct convert - convert specifier
+ * @sym: letter
+ * @f: function
  */
 struct convert
 {
@@ -14,6 +16,17 @@ struct convert
 	int (*f)(va_list);
 };
 typedef struct convert conver_t;
+
+/**
+ * struct hex_v - convert hexadecimal
+ * @num: number
+ * @letter: character
+ */
+typedef struct hexadecimal
+{
+	unsigned int num;
+	char letter;
+} hex_v;
 
 /* main functions */
 int _printf(const char *format, ...);

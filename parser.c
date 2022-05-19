@@ -3,6 +3,10 @@
 /**
  * parser - receives the main string and all the necessary parameters to
  * print a formatted string
+ * @format: string to be printed
+ * @f_list: array of conver_t structures
+ * @arg_list: list of variadic arguments
+ * Return: amount of characters printed
  */
 int parser(const char *format, conver_t f_list[], va_list arg_list)
 {
@@ -35,15 +39,12 @@ int parser(const char *format, conver_t f_list[], va_list arg_list)
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
 					printed_chars += 2;
-				}
-				else
+				} else
 					return (-1);
-			}
-			i++; /* Updating i to skip format symbols*/
-		}
-		/* Prints rest of string */
-		else
+			} i++; /* Updating i to skip format symbols*/
+		} else
 		{
+			/* Prints rest of string */
 			_putchar(format[i]);
 			printed_chars++;
 		}
