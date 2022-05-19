@@ -7,25 +7,30 @@
  */
 int print_number(va_list args)
 {
-	int n, div, len;
-	unsigned int num;
+	int i, j, n, len;
+	int number[100];
 
-	n = va_args(args, int);
+	n = va_arg(args, int);
 	len = 0;
 
 	if (n < 0)
 	{
 		len += _putchar('-');
-		n = -n;
 	}
-	else
-		num = n;
+	n = n;
 
-	/* if digit is greater than 10 */
-	if (n / 10)
-		print_number(digit / 10);
+	i = 0;
+	while (n != 0)
+	{
+		number[i] = n % 10;
+		n = n / 10;
+		i++;
+	}
 
-	len = _putchar(digit % 10 + '0');
+	for (j = i - 1; j >= 0; j--)
+	{
+		len += _putchar(number[j] + '0');
+	}
 	return (len);
 }
 
@@ -40,7 +45,8 @@ int print_unsigned_number(unsigned int n)
 
 	/* if digit is greater than 10 */
 	if (n / 10)
-		print_unsigned_number(digit / 10);
+		print_unsigned_number(n / 10);
 
-	len = _putchar(digit % 10 + '0');
+	len = _putchar(n % 10 + '0');
 	return (len);
+}

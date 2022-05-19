@@ -18,12 +18,12 @@ int _printf(const char *format, ...)
 		{"i", print_integer},
 		{"b", print_binary},
 		{"u", unsigned_integer},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_hex},
-		{"r", print_reversed},
+		{"o", unsigned_octal},
+		{"x", unsigned_hex_x},
+		{"X", unsigned_hex_X},
+		/*{"r", print_reversed},
 		{"p", print_address},
-		{"R", rot13},
+		{"R", rot13},*/
 		{NULL, NULL}
 	};
 	/* creating va_list*/

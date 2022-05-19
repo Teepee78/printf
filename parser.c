@@ -4,15 +4,15 @@
  * parser - receives the main string and all the necessary parameters to
  * print a formatted string
  */
-int parser(const char *format, conver_t f_list, va_list arg_list)
+int parser(const char *format, conver_t f_list[], va_list arg_list)
 {
-	int i, j;
+	int i, j, printed_chars, r_val;
 
 	printed_chars = 0;
 	/* Iterate through format string*/
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (format[i] = '%') /* check for format specifier */
+		if (format[i] == '%') /* check for format specifier */
 		{
 			/* Iterate through struct to find the right func */
 			for (j = 0; f_list[j].sym != NULL; j++)
@@ -34,12 +34,12 @@ int parser(const char *format, conver_t f_list, va_list arg_list)
 				{
 					_putchar(format[i]);
 					_putchar(format[i + 1]);
-					printed_chars = printed_chars + 2;
+					printed_chars += 2;
 				}
 				else
 					return (-1);
 			}
-			i = i + 1; /* Updating i to skip format symbols*/
+			i++; /* Updating i to skip format symbols*/
 		}
 		/* Prints rest of string */
 		else
