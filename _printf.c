@@ -1,77 +1,41 @@
 #include "main.h"
-#include <stdarg.h>
 
 /**
- * _printf - prints any character
- * @format: a string of characters and specifiers
- * Return: length of characters except null byte
+ * _printf - Receives main string and all necessary parameters
+ * to print a formatted string
+ * @format: string containing desired formatted
+ * Return: number of characters to be printed (null byte excluded)
  */
 int _printf(const char *format, ...)
 {
-	/* declare variables, length, i */
-	int length, i = 0;
-	va_list var;
-	int digit;
-	char *str;
-	void *ptr;
+	int printed_chars;
+	/* array linking characters to respective function*/
+	conver_t f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_binary},
+		{"u", unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_hex},
+		{"r", print_reversed},
+		{"p", print_address},
+		{"R", rot13},
+		{NULL, NULL}
+	};
+	/* creating va_list*/
+	va_list arg_list;
 
-	va_start(var, format);
+	/* string in format is null*/
+	if (format == NULL)
+		return (-1);
 
-	/* calculate length of format */
-	length = _strlen(format);
-
-	/* printing format */
-	i = 0;
-	while (format[i])
-	{
-		/* check for % sign */
-		if (format[i] == '%')
-		{
-			i++;
-			switch (format[i])
-			{
-				case 'd':
-					digit = va_arg(var, int);
-					print_digit(digit);
-					break;
-				case 'i':
-					digit = va_arg(var, int);
-					print_int(digit);
-					break;
-				case 'u':
-					digit = va_arg(var, unsigned int);
-					unsigned_int(digit);
-					break;
-				case 'o':
-					digit = va_arg(var, unsigned int);
-					unsigned_octal(digit);
-					break;
-				case 'x':
-					digit = va_arg(var, unsigned int);
-					unsigned_hex_x(digit);
-					break;
-				case 'X':
-					digit = va_arg(var, unsigned int);
-					unsigned_hex_X(digit);
-					break;
-				case 'c':
-					digit = va_arg(var, int);
-					_putchar(digit);
-					break;
-				case 's':
-					str = va_arg(var, char *);
-					print_string(str);
-					break;
-				case 'p':
-					ptr = va_arg(var, void *);
-					print_ptr(ptr);
-					break;
-			}
-		} else
-		{
-			_putchar(format[i]);
-		}
-		i++;
-	}
-	return (length);
+	va_start(arg_list, format);
+	/* Calling parser function */
+	printed_chars = parser(format, f_list, arg_list);
+	va_end(arg_list);
+	return (printed_chars);
 }
