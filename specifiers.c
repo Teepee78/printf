@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * unsigned_hex_x - prints hexadecimal
@@ -20,7 +21,6 @@ int unsigned_hex_x(va_list list)
 	hex = malloc(sizeof(unsigned int) * 100);
 	while (num != 0)
 	{
-		/* store remainder in array */
 		unsigned int temp = 0;
 
 		temp = num % 16;
@@ -31,7 +31,6 @@ int unsigned_hex_x(va_list list)
 		hex[i++] = temp;
 		num = num / 16;
 	}
-
 	/* printing hexadecimal */
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -48,8 +47,7 @@ int unsigned_hex_x(va_list list)
 		{
 			length += _putchar(hex[j] + '0');
 		}
-	}
-	free(hex);
+	} free(hex);
 	return (length);
 }
 
@@ -72,7 +70,6 @@ int unsigned_hex_X(va_list list)
 	hex = malloc(sizeof(unsigned int) * 100);
 	while (num != 0)
 	{
-		/* store remainder in array */
 		unsigned int temp = 0;
 
 		temp = num % 16;
@@ -83,7 +80,6 @@ int unsigned_hex_X(va_list list)
 		hex[i++] = temp;
 		num = num / 16;
 	}
-
 	/* printing hexadecimal */
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -100,8 +96,7 @@ int unsigned_hex_X(va_list list)
 		{
 			length += _putchar(hex[j] + '0');
 		}
-	}
-	free(hex);
+	} free(hex);
 	return (length);
 }
 
@@ -114,7 +109,7 @@ int unsigned_octal(va_list list)
 {
 	int length, i, j;
 	/* array to store octal */
-	unsigned int * octal;
+	unsigned int *octal;
 	unsigned int num = va_arg(list, unsigned int);
 
 	octal = malloc(sizeof(unsigned int) * 100);

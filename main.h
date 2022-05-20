@@ -18,7 +18,7 @@ struct convert
 typedef struct convert conver_t;
 
 /**
- * struct hex_v - convert hexadecimal
+ * struct hexadecimal - convert hexadecimal
  * @num: number
  * @letter: character
  */
