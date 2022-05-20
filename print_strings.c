@@ -29,7 +29,7 @@ int print_string(va_list list)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
 		len += _putchar(str[i]);
-	free(malloc);
+	free(str);
 	return (len);
 }
 
