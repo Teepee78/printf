@@ -43,6 +43,5 @@ int unsigned_hex_x(va_list);
 int unsigned_hex_X(va_list);
 int unsigned_octal(va_list);
 int init_hex_array(unsigned int *array, unsigned int num);
-int rot13(va_list);
 
 #endif

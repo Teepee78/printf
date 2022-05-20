@@ -43,9 +43,3 @@ int print_percent(va_list list)
 	_putchar(percent);
 	return (1);
 }
-
-/**
- * print_percent - prints a percent symbol
- * @list: list of arguments
- * Return: amount of characters printed
- */
