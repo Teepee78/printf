@@ -9,7 +9,7 @@
  */
 int unsigned_hex_x(va_list list)
 {
-	int length, i = 0, j, k;
+	int length = 0, i = 0, j, k;
 	/* array to store hexadecimals */
 	unsigned int *hex;
 	unsigned int num = va_arg(list, unsigned int);
@@ -58,7 +58,7 @@ int unsigned_hex_x(va_list list)
  */
 int unsigned_hex_X(va_list list)
 {
-	int length, i = 0, j, k;
+	int length = 0, i = 0, j, k;
 	/* array to store hexadecimals */
 	unsigned int *hex;
 	unsigned int num = va_arg(list, unsigned int);
@@ -107,7 +107,7 @@ int unsigned_hex_X(va_list list)
  */
 int unsigned_octal(va_list list)
 {
-	int length, i, j;
+	int length = 0, i, j;
 	/* array to store octal */
 	unsigned int *octal;
 	unsigned int num = va_arg(list, unsigned int);
