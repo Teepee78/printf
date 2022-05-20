@@ -51,7 +51,7 @@ int print_percent(va_list list)
  */
 int rot13(va_list list)
 {
-	int i, j;
+	int i, j, length = 0;
 	char *str;
 	char str1[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char str2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
@@ -65,12 +65,12 @@ int rot13(va_list list)
 		{
 			if (str[i] == str1[j])
 			{
-				_putchar(str2[j]);
+				length += _putchar(str2[j]);
 				break;
 			}
 		}
 		if (j == 53)
-			_putchar(str[i]);
+			length += _putchar(str[i]);
 	}
-	return (i);
+	return (length);
 }
