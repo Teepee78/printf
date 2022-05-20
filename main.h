@@ -41,5 +41,6 @@ int unsigned_integer(va_list);
 int unsigned_hex_x(va_list);
 int unsigned_hex_X(va_list);
 int unsigned_octal(va_list);
+int print_number(va_list);
 
 #endif

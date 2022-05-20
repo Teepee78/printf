@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdarg.h>
+#include <stdlib.h>
 
 /**
  * print_number - prints a number sent to this function
@@ -9,7 +10,11 @@
 int print_number(va_list args)
 {
 	int i, j, n, len;
-	int number[100];
+	/* declare integer array */
+	int *number;
+
+	/* allocate space for integer array */
+	number = malloc(sizeof(int) * 100);
 
 	n = va_arg(args, int);
 	len = 0;
@@ -17,8 +22,8 @@ int print_number(va_list args)
 	if (n < 0)
 	{
 		len += _putchar('-');
+		n = -n;
 	}
-	n = n;
 
 	i = 0;
 	while (n != 0)
@@ -32,6 +37,8 @@ int print_number(va_list args)
 	{
 		len += _putchar(number[j] + '0');
 	}
+	/* free integer array */
+	free(number);
 	return (len);
 }
 
