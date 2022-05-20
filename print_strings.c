@@ -45,7 +45,7 @@ int print_percent(va_list list)
 }
 
 /**
- * print_percent - prints a percent symbol
+ * rot13 - prints a percent symbol
  * @list: list of arguments
  * Return: amount of characters printed
  */
