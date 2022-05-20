@@ -21,6 +21,7 @@ int _printf(const char *format, ...)
 		{"o", unsigned_octal},
 		{"x", unsigned_hex_x},
 		{"X", unsigned_hex_X},
+		{"R", rot13},
 		{NULL, NULL}
 	};
 	/* creating va_list*/

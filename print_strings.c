@@ -43,3 +43,34 @@ int print_percent(va_list list)
 	_putchar(percent);
 	return (1);
 }
+
+/**
+ * print_percent - prints a percent symbol
+ * @list: list of arguments
+ * Return: amount of characters printed
+ */
+int rot13(va_list list)
+{
+	int i, j;
+	char *str;
+	char str1[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char str2[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+
+	str = va_arg(list, char *);
+	if (str == NULL)
+		return (-1);
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; j < 52; j++)
+		{
+			if (str[i] == str1[j])
+			{
+				_putchar(str2[j]);
+				break;
+			}
+		}
+		if (j == 53)
+			_putchar(str[i]);
+	}
+	return (i);
+}
