@@ -23,7 +23,7 @@ int print_string(va_list list)
 
 	str = va_arg(list, char *);
 	if (str == NULL)
-		return (-1);
+		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 		len += _putchar(str[i]);
 	return (len);
@@ -58,7 +58,7 @@ int rot13(va_list list)
 
 	str = va_arg(list, char *);
 	if (str == NULL)
-		return (-1);
+		return (0);
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		for (j = 0; j < 52; j++)
