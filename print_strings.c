@@ -23,7 +23,7 @@ int print_string(va_list list)
 
 	str = va_arg(list, char *);
 	if (str == NULL)
-		str = "(null)";
+		return (-1);
 	for (i = 0; str[i] != '\0'; i++)
 		len += _putchar(str[i]);
 	return (len);
@@ -43,3 +43,9 @@ int print_percent(va_list list)
 	_putchar(percent);
 	return (1);
 }
+
+/**
+ * print_percent - prints a percent symbol
+ * @list: list of arguments
+ * Return: amount of characters printed
+ */
