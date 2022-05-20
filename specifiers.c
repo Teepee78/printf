@@ -10,13 +10,14 @@ int unsigned_hex_x(va_list list)
 {
 	int length, i = 0, j, k;
 	/* array to store hexadecimals */
-	unsigned int hex[100];
+	unsigned int *hex;
 	unsigned int num = va_arg(list, unsigned int);
 	hex_v hex_value[] = {
 		{10, 'a'}, {11, 'b'}, {12, 'c'},
 		{13, 'd'}, {14, 'e'}, {15, 'f'}, {0, '\0'}
 	};
 
+	hex = malloc(sizeof(unsigned int) * 100);
 	while (num != 0)
 	{
 		/* store remainder in array */
@@ -48,6 +49,7 @@ int unsigned_hex_x(va_list list)
 			length += _putchar(hex[j] + '0');
 		}
 	}
+	free(hex);
 	return (length);
 }
 
@@ -60,13 +62,14 @@ int unsigned_hex_X(va_list list)
 {
 	int length, i = 0, j, k;
 	/* array to store hexadecimals */
-	unsigned int hex[100];
+	unsigned int *hex;
 	unsigned int num = va_arg(list, unsigned int);
 	hex_v hex_value[] = {
 		{10, 'A'}, {11, 'B'}, {12, 'C'},
 		{13, 'D'}, {14, 'E'}, {15, 'F'}, {0, '\0'}
 	};
 
+	hex = malloc(sizeof(unsigned int) * 100);
 	while (num != 0)
 	{
 		/* store remainder in array */
@@ -98,6 +101,7 @@ int unsigned_hex_X(va_list list)
 			length += _putchar(hex[j] + '0');
 		}
 	}
+	free(hex);
 	return (length);
 }
 
@@ -110,9 +114,10 @@ int unsigned_octal(va_list list)
 {
 	int length, i, j;
 	/* array to store octal */
-	unsigned int octal[100];
+	unsigned int * octal;
 	unsigned int num = va_arg(list, unsigned int);
 
+	octal = malloc(sizeof(unsigned int) * 100);
 	i = 0;
 	while (num != 0)
 	{
@@ -127,5 +132,6 @@ int unsigned_octal(va_list list)
 	{
 		length += _putchar(octal[j] + '0');
 	}
+	free(octal);
 	return (length);
 }
