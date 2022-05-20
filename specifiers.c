@@ -1,12 +1,10 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdlib.h>
 
 /**
  * init_hex_array - initialize hexadecimal array
  * @array: array
  * @num: number
- * Return: array
+ * Return: index of last element
  */
 int init_hex_array(unsigned int *array, unsigned int num)
 {
