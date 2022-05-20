@@ -31,6 +31,8 @@ int print_integer(va_list list)
 	int *number;
 
 	number = malloc(sizeof(int) * 100);
+	if (number == NULL)
+		return (0);
 
 	n = va_arg(list, int);
 	len = 0;
@@ -69,6 +71,8 @@ int print_binary(va_list list)
 	int bin = va_arg(list, int);
 
 	binary = malloc(sizeof(int) * 200);
+	if (binary == NULL)
+		return (0);
 	i = 0;
 	while (bin != 0)
 	{
@@ -97,6 +101,8 @@ int unsigned_integer(va_list list)
 	unsigned int n;
 
 	number = malloc(sizeof(int) * 100);
+	if (number == NULL)
+		return (0);
 	n = va_arg(list, unsigned int);
 	len = 0;
 

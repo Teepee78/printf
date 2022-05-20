@@ -23,13 +23,11 @@ int print_string(va_list list)
 	int i, len = 0;
 	char *str;
 
-	str = malloc(sizeof(char) * 100);
 	str = va_arg(list, char *);
 	if (str == NULL)
 		str = "(null)";
 	for (i = 0; str[i] != '\0'; i++)
 		len += _putchar(str[i]);
-	free(str);
 	return (len);
 }
 

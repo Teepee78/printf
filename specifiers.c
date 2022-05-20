@@ -3,13 +3,38 @@
 #include <stdlib.h>
 
 /**
+ * init_hex_array - initialize hexadecimal array
+ * @array: array
+ * @num: number
+ * Return: array
+ */
+int init_hex_array(unsigned int *array, unsigned int num)
+{
+	int i = 0;
+
+	while (num != 0)
+	{
+		unsigned int temp = 0;
+
+		temp = num % 16;
+		if (temp < 10)
+			array[i] = temp + 48;
+		else
+			array[i] = temp + 65;
+		array[i++] = temp;
+		num = num / 16;
+	}
+	return (i);
+}
+
+/**
  * unsigned_hex_x - prints hexadecimal
  * @list: list of arguments
  * Return: amount of characters printed
  */
 int unsigned_hex_x(va_list list)
 {
-	int length = 0, i = 0, j, k;
+	int length = 0, i, j, k;
 	/* array to store hexadecimals */
 	unsigned int *hex;
 	unsigned int num = va_arg(list, unsigned int);
@@ -19,18 +44,9 @@ int unsigned_hex_x(va_list list)
 	};
 
 	hex = malloc(sizeof(unsigned int) * 100);
-	while (num != 0)
-	{
-		unsigned int temp = 0;
-
-		temp = num % 16;
-		if (temp < 10)
-			hex[i] = temp + 48;
-		else
-			hex[i] = temp + 65;
-		hex[i++] = temp;
-		num = num / 16;
-	}
+	if (hex == NULL)
+		return (0);
+	i = init_hex_array(hex, num);
 	/* printing hexadecimal */
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -68,18 +84,9 @@ int unsigned_hex_X(va_list list)
 	};
 
 	hex = malloc(sizeof(unsigned int) * 100);
-	while (num != 0)
-	{
-		unsigned int temp = 0;
-
-		temp = num % 16;
-		if (temp < 10)
-			hex[i] = temp + 48;
-		else
-			hex[i] = temp + 65;
-		hex[i++] = temp;
-		num = num / 16;
-	}
+	if (hex == NULL)
+		return (0);
+	i = init_hex_array(hex, num);
 	/* printing hexadecimal */
 	for (j = i - 1; j >= 0; j--)
 	{
@@ -113,6 +120,8 @@ int unsigned_octal(va_list list)
 	unsigned int num = va_arg(list, unsigned int);
 
 	octal = malloc(sizeof(unsigned int) * 100);
+	if (octal == NULL)
+		return (0);
 	i = 0;
 	while (num != 0)
 	{
