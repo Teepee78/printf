@@ -80,19 +80,19 @@ int rot13(va_list list)
  * @list: list of arguments
  * Return: amount of characters printed
  */
- int print_reverse(va_list list)
- {
-	 int len, i;
-	 char *str;
+int print_reverse(va_list list)
+{
+	int len, i, printed_chars = 0;
+	char *str;
 
-	 str = va_arg(list, char *);
-	 if (str == NULL)
-	 	return 0;
+	str = va_arg(list, char *);
+	if (str == NULL)
+		return (0);
 	for (len = 0; str[len] != '\0'; len++)
 	{}
 	for (i = len - 1; i >= 0; i--)
 	{
-		len += _putchar(str[i]);
+		printed_chars += _putchar(str[i]);
 	}
-	return (len);
- }
+	return (printed_chars);
+}

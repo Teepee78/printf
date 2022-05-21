@@ -45,6 +45,5 @@ int unsigned_octal(va_list);
 int init_hex_array(unsigned int *array, unsigned int num);
 int rot13(va_list);
 int print_reverse(va_list);
-char *rev_string(char *s);
 
 #endif /* PRINT_F */
