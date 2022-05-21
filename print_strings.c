@@ -74,3 +74,25 @@ int rot13(va_list list)
 	}
 	return (length);
 }
+
+/**
+ * print_reverse - prints a string in reverse
+ * @list: list of arguments
+ * Return: amount of characters printed
+ */
+ int print_reverse(va_list list)
+ {
+	 int len, i;
+	 char *str;
+
+	 str = va_arg(list, char *);
+	 if (str == NULL)
+	 	return 0;
+	for (len = 0; str[len] != '\0'; len++)
+	{}
+	for (i = len - 1; i >= 0; i--)
+	{
+		len += _putchar(str[i]);
+	}
+	return (len);
+ }
